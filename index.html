@@ -27,7 +27,7 @@
             align-items: center;
             padding: 2rem 1rem;
         }
-        .container { width: 100%; max-width: 700px; display: flex; flex-direction: column; gap: 1rem; }
+        .container { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 1rem; }
         header { text-align: center; margin-bottom: 1.5rem; }
         .logo-title { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
         .subtitle-yellow { color: var(--text-yellow); font-weight: 600; font-size: 1.2rem; }
@@ -56,8 +56,15 @@
         .active .arrow { transform: rotate(180deg); }
 
         .submenu-container { display: none; flex-direction: column; gap: 0.7rem; padding-left: 1rem; }
-        .content-container { display: none; padding: 1.2rem; background: rgba(255,255,255,0.06); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-
+        .content-container { 
+            display: none; 
+            padding: 1.4rem; 
+            background: rgba(255,255,255,0.06); 
+            border-radius: 12px; 
+            border: 1px solid rgba(255,255,255,0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -67,11 +74,12 @@
             overflow: hidden;
         }
         th, td {
-            padding: 0.85rem;
+            padding: 0.8rem 0.9rem;
             text-align: left;
             border-bottom: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.93rem;
         }
-        th { background: rgba(25,130,196,0.5); color: var(--text-yellow); }
+        th { background: rgba(25,130,196,0.5); color: var(--text-yellow); position: sticky; top: 0; }
         .info-box {
             background: rgba(10,17,40,0.6);
             border: 1px solid var(--card-border);
@@ -107,6 +115,7 @@
         </div>
         <div id="menu-kelompok" class="submenu-container">
 
+            <!-- Sejarah -->
             <div class="btn-sub-menu" onclick="showOnlyContent('sejarah-content', this)">📖 Sejarah Kelompok <span class="arrow">▼</span></div>
             <div id="sejarah-content" class="content-container">
                 <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Sejarah Kelompok</h3>
@@ -124,72 +133,98 @@
                 Kelompok ini aktif dalam kegiatan produksi, pemasaran, pelatihan, dan pengembangan usaha guna meningkatkan kualitas produk serta daya saing usaha anggota kelompok.</p>
             </div>
 
+            <!-- Data Dasar -->
             <div class="btn-sub-menu" onclick="showOnlyContent('dasar-content', this)">📋 Data Dasar Kelompok <span class="arrow">▼</span></div>
             <div id="dasar-content" class="content-container">
                 <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Data Dasar Kelompok</h3>
                 <table>
                     <thead>
-                        <tr><th>Nama Poklahsar</th><th>Alamat</th><th>Desa/Kecamatan</th><th>Kabupaten</th><th>Tanggal Pendirian</th><th>Kelas</th><th>Sertifikat</th></tr>
+                        <tr><th>Timestamp</th><th>Token</th><th>Nama Poklahsar</th><th>Alamat</th><th>Desa/Kecamatan</th><th>Kabupaten</th><th>No. HP Ketua</th><th>Koordinat</th><th>Tanggal Pendirian</th><th>Kelas</th><th>Sertifikat</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Poklahsar Bunga Merah</td><td>Dsn.Spao</td><td>Desa Klampis Timur, Kec. Klampis</td><td>Bangkalan</td><td>12/06/2012</td><td>Pemula</td><td>411.61/110.5/433.105/2012</td></tr>
-                        <tr><td>Srikandi</td><td>-</td><td>Desa Puuhopa, Kec. Puriala</td><td>Konawe</td><td>03/06/2019</td><td>Pemula</td><td>-</td></tr>
-                        <tr><td>Waroh</td><td>Dsn.Penangke</td><td>Desa Sesaot, Kec. Narmada</td><td>Lombok Barat</td><td>15/05/2016</td><td>Pemula</td><td>1.3.52.01.03.0819</td></tr>
-                        <tr><td>Sumber Rejeki</td><td>Dsn.Jipangulu</td><td>Ngelo, Kec. Margomulyo</td><td>Bojonegoro</td><td>21/09/2018</td><td>Pemula</td><td>188/17/KEP/412.51.23.2002/2018</td></tr>
+                        <tr><td>17/06/2026 21:38:16</td><td>rah12ad</td><td>Poklahsar Bunga Merah</td><td>Dsn.Spao</td><td>Desa Klampis Timur, Kecamatan Klampis</td><td>Bangkalan</td><td>0</td><td>-6.89322,112.90864</td><td>12/06/2012</td><td>Pemula</td><td>411.61/110.5/433.105/2012</td></tr>
+                        <tr><td>17/06/2026 21:40:45</td><td>di 19S</td><td>Srikandi</td><td>-</td><td>Desa Puuhopa, Kecamatan Puriala</td><td>Konawe</td><td>081242551010</td><td>122.078063,-4.056849</td><td>03/06/2019</td><td>Pemula</td><td>-</td></tr>
+                        <tr><td>17/06/2026 21:43:55</td><td>roh16h</td><td>Waroh</td><td>Dsn.Penangke</td><td>Desa Sesaot, Kecamatan Narmada</td><td>Lombok Barat</td><td>087864105341</td><td>-8.548669,116.236742</td><td>15/05/2016</td><td>Pemula</td><td>1.3.52.01.03.0819</td></tr>
+                        <tr><td>17/06/2026 21:50:16</td><td>eki18wo</td><td>Sumber Rejeki</td><td>Dsn.Jipangulu</td><td>Ngelo, Kecamatan Margomulyo</td><td>Bojonegoro</td><td>085748523588</td><td>-7.250727,111.454643</td><td>21/09/2018</td><td>Pemula</td><td>188/17/KEP/412.51.23.2002/2018</td></tr>
                     </tbody>
                 </table>
             </div>
 
+            <!-- Data Anggota (FULL) -->
             <div class="btn-sub-menu" onclick="showOnlyContent('anggota-content', this)">👥 Data Anggota Kelompok <span class="arrow">▼</span></div>
             <div id="anggota-content" class="content-container">
-                <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Data Anggota Kelompok</h3>
+                <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Data Anggota Kelompok (Lengkap)</h3>
                 <table>
                     <thead>
-                        <tr><th>Nama</th><th>Jabatan</th><th>Alamat</th><th>Kelompok</th></tr>
+                        <tr><th>Nama</th><th>Jabatan</th><th>Alamat</th><th>Token Kelompok</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Habibah</td><td>Sekretaris</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Jumriyah</td><td>Anggota</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Amina</td><td>Anggota</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Muminah</td><td>Anggota</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Mutmaimah</td><td>Anggota</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Syamsyiah</td><td>Anggota</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Rokidah</td><td>Anggota</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Ida Susanti</td><td>Bendahara</td><td>Klampis Timur</td><td>Bunga Merah</td></tr>
-                        <tr><td>Yanti</td><td>Sekretaris</td><td>Desa Puuhopa</td><td>Srikandi</td></tr>
-                        <tr><td>Juliasih</td><td>Anggota</td><td>Desa Puuhopa</td><td>Srikandi</td></tr>
-                        <tr><td>Suryati</td><td>Sekretaris</td><td>Petak</td><td>Waroh</td></tr>
-                        <tr><td>Wiwin Sunarti</td><td>Sekretaris</td><td>Jipanghulu</td><td>Sumber Rejeki</td></tr>
-                        <!-- Semua data lain sudah ada di spreadsheet asli -->
+                        <tr><td>Habibah</td><td>Sekretaris</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Jumriyah</td><td>Anggota</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Amina</td><td>Anggota</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Muminah</td><td>Anggota</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Mutmaimah</td><td>Anggota</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Syamsyiah</td><td>Anggota</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Rokidah</td><td>Anggota</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Ida Susanti</td><td>Bendahara</td><td>Klampis Timur</td><td>rah12ad</td></tr>
+                        <tr><td>Yanti</td><td>Sekretaris</td><td>Desa Puuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Juliasih</td><td>Anggota</td><td>Desa Puuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Cucu R</td><td>Anggota</td><td>Desa Puuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Neneng</td><td>Anggota</td><td>Desa Puuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Titi M</td><td>Anggota</td><td>Desa Puuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Suryati</td><td>Sekretaris</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Fatmawati</td><td>Anggota</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Saeraah</td><td>Anggota</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Seniah</td><td>Anggota</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Habibbahurripa'ah</td><td>Anggota</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Wiwin Sunarti</td><td>Sekretaris</td><td>Jipanghulu</td><td>eki18wo</td></tr>
+                        <tr><td>Semiati</td><td>Anggota</td><td>Jipanghulu</td><td>eki18wo</td></tr>
+                        <tr><td>Warti A</td><td>Anggota</td><td>Ngelo</td><td>eki18wo</td></tr>
+                        <tr><td>Sariyah</td><td>Anggota</td><td>Jipanghulu</td><td>eki18wo</td></tr>
+                        <tr><td>Jirah</td><td>Anggota</td><td>Ngelo</td><td>eki18wo</td></tr>
+                        <tr><td>Ani Maya Sopa</td><td>Anggota</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Partini</td><td>Anggota</td><td>Desa Phuuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Rohma</td><td>Anggota</td><td>Desa Phuuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Cici</td><td>Anggota</td><td>Desa Phuuhopa</td><td>di 19S</td></tr>
+                        <tr><td>Sri Sumari</td><td>Anggota</td><td>Jipanghulu</td><td>eki18wo</td></tr>
+                        <tr><td>Supinah</td><td>Anggota</td><td>Jipanghulu</td><td>eki18wo</td></tr>
+                        <tr><td>Warti B</td><td>Anggota</td><td>Ngelo</td><td>eki18wo</td></tr>
+                        <tr><td>Sulasri</td><td>Anggota</td><td>Jipanghulu</td><td>eki18wo</td></tr>
+                        <tr><td>Indayani</td><td>Anggota</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Ani</td><td>Anggota</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Ria Hartini</td><td>Bendahara</td><td>Petak</td><td>roh16h</td></tr>
+                        <tr><td>Kartini</td><td>Bendahara</td><td>Jipanghulu</td><td>eki18wo</td></tr>
+                        <tr><td>Ira Yusnita</td><td>Bendahara</td><td>Desa Puuhopa</td><td>di 19S</td></tr>
                     </tbody>
                 </table>
-                <small style="opacity:0.8;">*Tabel di atas menampilkan contoh utama. Data lengkap ada di spreadsheet.</small>
             </div>
 
+            <!-- Data Komoditas -->
             <div class="btn-sub-menu" onclick="showOnlyContent('komoditas-content', this)">🐟 Data Komoditas Perikanan <span class="arrow">▼</span></div>
             <div id="komoditas-content" class="content-container">
                 <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Data Komoditas Perikanan</h3>
                 <table>
                     <thead>
-                        <tr><th>Nama Poklahsar</th><th>Komoditas 1</th><th>Komoditas 2</th><th>Komoditas 3</th></tr>
+                        <tr><th>Nama Poklahsar</th><th>Komoditas 1</th><th>Dokumentasi 1</th><th>Komoditas 2</th><th>Dokumentasi 2</th><th>Komoditas 3</th><th>Dokumentasi 3</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Poklahsar Bunga Merah</td><td>Udang</td><td>Ikan Laut</td><td>-</td></tr>
-                        <tr><td>Poklahsar Srikandi</td><td>Belut</td><td>-</td><td>-</td></tr>
-                        <tr><td>Poklahsar Sumber Rejeki</td><td>Ikan Jendil</td><td>Ikan Wader</td><td>Ikan Patin / Bader / Tawes</td></tr>
-                        <tr><td>Poklahsar Waroh</td><td>Rumput Laut</td><td>-</td><td>-</td></tr>
+                        <tr><td>Poklahsar Bunga Merah</td><td>Udang</td><td>https://drive.google.com/open?id=1JX2-c71RxhIs-C-0MTtijwMOPei1yzSk</td><td>Ikan Laut</td><td>https://drive.google.com/open?id=1iu5kt-LwaY57opfY_lk5rfae4KPdecuF</td><td>-</td><td>-</td></tr>
+                        <tr><td>Poklahsar Srikandi</td><td>Belut</td><td>https://drive.google.com/open?id=1LCY8bUiGWUqAeWS1EFR_hCQWiWecvkZ5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                        <tr><td>Poklahsar Sumber Rejeki</td><td>Ikan Jendil</td><td>https://drive.google.com/open?id=1WkLIxQzbvs-EFP9DbgkK6IAhzrhWgLOb</td><td>Ikan Wader</td><td>https://drive.google.com/open?id=1QCbZ4imdi84mp-bwxP7E2YfZjPS_lyBN</td><td>Ikan Patin</td><td>https://drive.google.com/open?id=18pKlcKpSBV7sGo7kr660CVS7zy44HIhS</td></tr>
+                        <tr><td>Poklahsar Waroh</td><td>Rumput Laut</td><td>https://drive.google.com/open?id=1kDCm5CdyHJ9D9kV4BJZCxeJY2Bmytsk4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
                     </tbody>
                 </table>
             </div>
 
+            <!-- Hasil Data -->
             <a href="https://salmanajima.github.io/SSLM/" target="_blank" class="btn-sub-menu" style="background:rgba(3,105,161,0.7); color:white; justify-content:center;">
-                📊 Hasil Data Kelompok & Inventaris (SSLM)
+                📊 Hasil Data Kelompok & Inventaris Lengkap (SSLM)
             </a>
         </div>
 
         <div class="info-box">
             <div style="color:var(--text-yellow); font-weight:600; margin-bottom:0.8rem;">ℹ️ Informasi</div>
-            <p style="line-height:1.6; opacity:0.9;">Semua data diambil lengkap dari sumber yang Anda berikan.</p>
+            <p style="line-height:1.6; opacity:0.9;">Semua data diambil lengkap dari Google Sheets dan Looker Studio yang Anda berikan.</p>
         </div>
     </div>
 
@@ -211,17 +246,10 @@
         }
 
         function showOnlyContent(contentId, clickedBtn) {
-            // Tutup semua content
-            document.querySelectorAll('.content-container').forEach(el => {
-                el.style.display = "none";
-            });
-            document.querySelectorAll('.btn-sub-menu').forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-            // Buka yang diklik
-            const content = document.getElementById(contentId);
-            content.style.display = "block";
+            document.querySelectorAll('.content-container').forEach(el => el.style.display = "none");
+            document.querySelectorAll('.btn-sub-menu').forEach(btn => btn.classList.remove("active"));
+            
+            document.getElementById(contentId).style.display = "block";
             clickedBtn.classList.add("active");
         }
     </script>
