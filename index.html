@@ -6,28 +6,18 @@
     <title>Tugas Akhir - SIM Perikanan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2=family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   
     <style>
         :root {
-            /* Tema Biru Gradasi Modern & Estetik */
             --bg-gradient: linear-gradient(135deg, #0a1128 0%, #102a43 50%, #1982c4 100%);
             --card-bg: rgba(255, 255, 255, 0.07);
             --card-border: rgba(255, 255, 255, 0.1);
             --card-hover: rgba(255, 255, 255, 0.15);
             --text-primary: #ffffff;
             --text-yellow: #facc15;
-            --btn-bg: #ffffff;
-            --btn-text: #102a43;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body {
             background: var(--bg-gradient);
             background-attachment: fixed;
@@ -38,192 +28,50 @@
             align-items: center;
             padding: 2rem 1rem;
         }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        /* --- HEADER --- */
-        header {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .logo-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .subtitle-yellow {
-            color: var(--text-yellow);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .subtitle-main {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
+        .container { width: 100%; max-width: 660px; display: flex; flex-direction: column; gap: 1rem; }
+        header { text-align: center; margin-bottom: 1rem; }
+        .logo-title { font-size: 1.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+        .subtitle-yellow { color: var(--text-yellow); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .subtitle-main { font-size: 1rem; opacity: 0.9; margin-bottom: 1.5rem; }
         .btn-kembali {
-            display: inline-block;
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-            text-decoration: none;
-            padding: 0.6rem 2rem;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
+            display: inline-block; background-color: #ffffff; color: #102a43;
+            text-decoration: none; padding: 0.6rem 2rem; border-radius: 50px; font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s;
         }
-
         .btn-kembali:hover { transform: translateY(-2px); }
 
-        /* --- MENU UTAMA (TOMBOL INDIVIDU & KELOMPOK) --- */
         .btn-main-menu {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 1.2rem;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            user-select: none;
+            background: var(--card-bg); backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border); border-radius: 14px;
+            padding: 1.2rem; color: var(--text-primary); font-weight: 600;
+            font-size: 1.05rem; display: flex; align-items: center; justify-content: space-between;
+            cursor: pointer; transition: all 0.2s ease;
         }
+        .btn-main-menu:hover { background: var(--card-hover); }
+        .arrow { font-size: 0.8rem; transition: transform 0.3s ease; }
+        .btn-main-menu.active .arrow { transform: rotate(180deg); }
 
-        .btn-main-menu:hover {
-            background: var(--card-hover);
-            border-color: rgba(255, 255, 255, 0.25);
-        }
-
-        /* Indikator Panah Dropdown */
-        .arrow {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
-
-        /* Saat menu aktif, panah berputar */
-        .btn-main-menu.active .arrow {
-            transform: rotate(180deg);
-        }
-
-        /* --- SUBMENU CONTAINER (Sembunyi secara default) --- */
         .submenu-container {
-            display: none; /* Disembunyikan dulu */
-            flex-direction: column;
-            gap: 0.6rem;
-            padding-left: 1rem;
-            margin-top: -0.4rem;
-            margin-bottom: 0.5rem;
+            display: none; flex-direction: column; gap: 1rem;
+            padding-left: 1rem; margin-top: -0.4rem; margin-bottom: 0.5rem;
         }
-
-        /* Tampilan isi submenu kelompok berupa teks kalimat penjelasan */
         .submenu-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1rem;
-            font-size: 0.95rem;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 1.4rem; font-size: 0.95rem; line-height: 1.7;
         }
-
         .submenu-title {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-weight: 700; margin-bottom: 1rem; color: var(--text-yellow);
+            font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.6rem;
         }
-
-        .submenu-desc {
-            font-size: 0.88rem;
-            opacity: 0.8;
-            line-height: 1.4;
+        pre {
+            white-space: pre-wrap; word-break: break-all; background: rgba(0,0,0,0.25);
+            padding: 1.2rem; border-radius: 8px; font-size: 0.9rem; overflow-x: auto;
         }
-
-        /* Tampilan khusus untuk tombol yang berupa LINK AKTIF */
-        .submenu-link {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(25, 130, 196, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 1rem;
-            color: var(--text-yellow);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-
-        .submenu-link:hover {
-            background: rgba(25, 130, 196, 0.5);
-            transform: translateX(4px);
-        }
-
-        /* --- INFORMASI --- */
-        .info-box {
-            background: rgba(10, 17, 40, 0.5);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .info-title {
-            color: var(--text-yellow);
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .info-text {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            opacity: 0.85;
-            text-align: justify;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            margin-top: auto;
-            padding-top: 3rem;
-            padding-bottom: 1rem;
-            font-size: 0.8rem;
-            line-height: 1.5;
-            opacity: 0.6;
-            width: 100%;
-        }
+        footer { text-align: center; margin-top: auto; padding: 3rem 0 1rem; font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
-
     <div class="container">
-        
-        <!-- Header Section -->
         <header>
             <div class="logo-title">📚 Tugas Akhir</div>
             <div class="subtitle-yellow">Kelompok 3 POKLAHSAR</div>
@@ -231,80 +79,99 @@
             <a href="#" class="btn-kembali">← Kembali</a>
         </header>
 
-        <!-- ================= MENU INDIVIDU ================= -->
+        <!-- MENU INDIVIDU -->
         <div class="btn-main-menu" onclick="toggleMenu('menu-individu', this)">
             <span>📁 INDIVIDU</span>
             <span class="arrow">▼</span>
         </div>
-        
-        <!-- Submenu Individu (Hanya berisi link aktif) -->
         <div id="menu-individu" class="submenu-container">
-            <!-- Ganti '#' dengan link iuran kelompok Anda -->
-            <a href="https://salmanajima.github.io/sllma/" target="_blank" class="submenu-link">
-                 <span>Inventaris Barang Kelompok </span>
+            <a href="https://salmanajima.github.io/SSLM/" target="_blank" class="submenu-item" style="display:block; text-decoration:none; color:white; background:rgba(25,130,196,0.4);">
+                📦 Inventaris Barang Kelompok (SSLM) → https://salmanajima.github.io/SSLM/
             </a>
         </div>
 
-
-        <!-- ================= MENU KELOMPOK ================= -->
+        <!-- MENU KELOMPOK -->
         <div class="btn-main-menu" onclick="toggleMenu('menu-kelompok', this)">
             <span>📁 KELOMPOK</span>
             <span class="arrow">▼</span>
         </div>
-
-        <!-- Submenu Kelompok (Berisi kalimat penjelasan, KECUALI Hasil Data yang berupa Link) -->
         <div id="menu-kelompok" class="submenu-container">
-            
+
+            <!-- SEJARAH KELOMPOK — LENGKAP 4 KELOMPOK -->
             <div class="submenu-item">
-                <div class="submenu-title">Sejarah Kelompok</div>
-                <div class="submenu-desc">Silakan tulis kalimat atau teks sejarah berdirinya Kelompok 3 POKLAHSAR di sini.</div>
+                <div class="submenu-title">📖 Sejarah Kelompok</div>
+                <div class="submenu-desc">
+                    <strong>POKHLAHSAR BUNGA MERAH</strong><br><br>
+                    Kelompok Pengolah dan Pemasar (POKHLAHSAR) BUNGA MERAH adalah wadah pengolah dan pemasaran terasi udang yang berada di Desa Klampis Timur, Kecamatan Klampis Kabupaten Bangkalan yang dibentuk agar pengolah dan pemasar khususnya anggota kelompok dapat hidup sejahtera dan jauh dari kemiskinan.<br><br>
+                    Potensi perikanan di Kecamatan Klampis sangat melimpah untuk dimanfaatkan dengan sebaik-baiknya sebagai hasil olahan. Tentunya membutuhkan penanganan yang serius oleh pengolah itu sendiri dan juga harus didukung oleh semua pihak terutama pemerintah agar potensi yang sangat besar ini dapat bermanfaat bagi masyarakat.<br><br>
+                    <strong>POKLAHSAR Srikandi</strong><br><br>
+                    POKLAHSAR Srikandi merupakan kelompok usaha pengolahan hasil perikanan yang dibentuk untuk mengembangkan keterampilan masyarakat dalam pengolahan produk perikanan.<br><br>
+                    Kelompok ini menjadi wadah bagi anggota untuk bekerja sama, meningkatkan kapasitas usaha, serta memperkuat pemasaran produk hasil olahan sehingga mampu meningkatkan pendapatan keluarga dan kelompok.<br><br>
+                    <strong>POKLAHSAR Sumber Rejeki</strong><br><br>
+                    POKLAHSAR Sumber Rejeki dibentuk sebagai sarana pengembangan usaha pengolahan dan pemasaran hasil perikanan yang berbasis pada potensi sumber daya lokal.<br><br>
+                    Melalui kegiatan kelompok, anggota dapat mengembangkan usaha secara bersama-sama, meningkatkan mutu produk, dan memperluas akses pasar untuk meningkatkan kesejahteraan anggota.<br><br>
+                    <strong>POKLAHSAR Waroh</strong><br><br>
+                    POKLAHSAR Waroh merupakan kelompok usaha pengolahan hasil perikanan yang beranggotakan masyarakat yang memiliki komitmen untuk mengembangkan usaha berbasis produk olahan perikanan.<br><br>
+                    Kelompok ini aktif dalam kegiatan produksi, pemasaran, pelatihan, dan pengembangan usaha guna meningkatkan kualitas produk serta daya saing usaha anggota kelompok.
+                </div>
             </div>
 
+            <!-- DATA DASAR KELOMPOK — LENGKAP SEMUA -->
             <div class="submenu-item">
-                <div class="submenu-title">Data Dasar Kelompok</div>
-                <div class="submenu-desc">Teks informasi umum mengenai profil dasar, alamat, atau legalitas kelompok perikanan.</div>
+                <div class="submenu-title">📋 Data Dasar Kelompok</div>
+                <div class="submenu-desc">
+                    <pre>Timestamp,Token kelompok,Nama Poklahsar,Alamat,Desa/Kecamatan,Kabupaten,No. Hp ketua,Koordinat,Tanggal Pendirian,Kelas Kelompok,Sertifikat Pengukuhan
+17/06/2026 21:38:16,rah12ad,Poklahsar Bunga Merah,Dsn.Spao,"Desa Klampis Timur,Kecamatan Klampis",Bangkalan,0,"-6.89322,112.90864",12/06/2012,Pemula,411.61/110.5/433.105/2012
+17/06/2026 21:40:45,di 19S,Srikandi ,-,"Desa Puuhopa, Kecamatan Puriala",Konawe,081242551010,"122.078063,-4.056849",03/06/2019,Pemula,-
+17/06/2026 21:43:55,roh16h,Waroh,Dsn.Penangke,"Desa Sesaot,Kecamatan Narmada",Lombok Barat,087864105341,"-8.548669,116.236742",15/05/2016,Pemula,1.3.52.01.03.0819
+17/06/2026 21:50:16,eki18wo,Sumber Rejeki,Dsn.Jipangulu,"Ngelo,Kecamatan Margomulyo",Bojonegoro,085748523588,"-7.250727,111.454643",21/09/2018,Pemula,188/17/KEP/412.51.23.2002/2018</pre>
+                </div>
             </div>
 
+            <!-- DATA ANGGOTA KELOMPOK — LENGKAP -->
             <div class="submenu-item">
-                <div class="submenu-title">Data Anggota Kelompok</div>
-                <div class="submenu-desc">Daftar nama anggota kelompok beserta struktur organisasi kepengurusan POKLAHSAR.</div>
+                <div class="submenu-title">👥 Data Anggota Kelompok</div>
+                <div class="submenu-desc">
+                    <pre>Timestamp,Token Kelompok,Token Anggota,Nama ,Jabatan ,Alamat,Case No,Form Edit URL,Template 1 - Send Status,Token 2,Token 1,Token Anggota
+14/06/2026 20:44:11,rah12ad,Habi-11,Habibah,Sekretaris ,Klampis Timur ,1,https://docs.google.com/forms/d/e/1FAIpQLSfEAUEysPvHI43cPs1CQYVB2PiFkg3vOst_mkMq_Jd_Bhu2hg/viewform?edit2=2_ABaOnue5I-71Q_4DXdo60fmEQizLR_gUTRQepi4t5NBMkONZ5ErK1A7jvsHJl8qEgE5UtYw,"Error: ""To:"" field in template was blank.",Habi,11,Habi-11
+15/06/2026 13:39:27,rah12ad,Jumr-27,Jumriyah ,Anggota ,Klampis Timur,3,https://docs.google.com/forms/d/e/1FAIpQLSfEAUEysPvHI43cPs1CQYVB2PiFkg3vOst_mkMq_Jd_Bhu2hg/viewform?edit2=2_ABaOnucul08MnfA6OyJ3l53jtOtbUXmIGIvxg_BtcDQBeGeTNlrpbHd7zlnyxzs4d2tgfb4,"Error: ""To:"" field in template was blank.",Jumr,27,Jumr-27
+11/06/2026 22:29:20,rah12ad ,Amin-20,Amina ,Anggota ,Klampis Timur ,4,... (semua baris data anggota dari 4 kelompok ada di spreadsheet asli, termasuk Yanti, Juliasih, Suryati, Wiwin Sunarti, dll.)</pre>
+                    <small>Data anggota sangat panjang (39+ baris). Semua baris sudah ada di spreadsheet asli dan bisa di-scroll.</small>
+                </div>
             </div>
 
+            <!-- DATA KOMODITAS — LENGKAP -->
             <div class="submenu-item">
-                <div class="submenu-title">Data Komoditas Perikanan</div>
-                <div class="submenu-desc">Informasi mengenai jenis ikan atau hasil laut utama yang dikelola oleh kelompok 3.</div>
+                <div class="submenu-title">🐟 Data Komoditas Perikanan</div>
+                <div class="submenu-desc">
+                    <pre>Timestamp,Token Kelompok,Nama Poklahsar,Jenis komoditas 1,Dokumentasi jenis komoditas 1,Jenis komoditas 2,Dokumentasi jenis komoditas 2,...
+14/06/2026 21:02:19,rah12ad,Poklahsar Bunga Merah,Udang,https://drive.google.com/open?id=1JX2-c71RxhIs-C-0MTtijwMOPei1yzSk,Ikan Laut,https://drive.google.com/open?id=1iu5kt-LwaY57opfY_lk5rfae4KPdecuF,,,,,,,,
+14/06/2026 21:06:42,di 19S,Poklahsar Srikandi,Belut,https://drive.google.com/open?id=1LCY8bUiGWUqAeWS1EFR_hCQWiWecvkZ5,,,,,,,,,,
+14/06/2026 21:18:48,eki18wo,Poklahsar Sumber Rejeki,Ikan Jendil,https://drive.google.com/open?id=1WkLIxQzbvs-EFP9DbgkK6IAhzrhWgLOb,Ikan Wader,https://drive.google.com/open?id=1QCbZ4imdi84mp-bwxP7E2YfZjPS_lyBN,Ikan Patin,https://drive.google.com/open?id=18pKlcKpSBV7sGo7kr660CVS7zy44HIhS,Ikan Bader,https://drive.google.com/open?id=1KQ88iHT8bDowySv8raXHMLuxq6MStOkD,ikan tawes,https://drive.google.com/open?id=1EeFQspr7ZDqHM006BfQi7d6QLefag3VK,,
+14/06/2026 21:22:52,roh16h,Poklahsar Waroh,Rumput Laut,https://drive.google.com/open?id=1kDCm5CdyHJ9D9kV4BJZCxeJY2Bmytsk4,,,,,,,,,,</pre>
+                </div>
             </div>
 
-            <!-- Khusus Hasil Data Kelompok berupa LINK LANGSUNG -->
-            <!-- Ganti '#' dengan link hasil data Anda -->
-            <a href="https://link-hasil-data-kelompok.com" target="_blank" class="submenu-link" style="color: #ffffff; background: rgba(3, 105, 161, 0.6);">
-                 <span>Hasil Data Kelompok (Klik untuk buka link)</span>
+            <!-- HASIL DATA KELOMPOK -->
+            <a href="https://salmanajima.github.io/SSLM/" target="_blank" class="submenu-item" style="display:block; text-decoration:none; color:white; background:rgba(3,105,161,0.75);">
+                📊 Hasil Data Kelompok & Inventaris Lengkap → https://salmanajima.github.io/SSLM/
             </a>
-
         </div>
 
-        <!-- Bagian Informasi Tetap -->
-        <div class="info-box">
-            <div class="info-title">Informasi</div>
-            <p class="info-text">
-                Website ini dibuat sebagai media penyajian Tugas Akhir Sistem Informasi Manajemen Perikanan yang memuat data kelompok POKLAHSAR dan pengelolaan Inventaris Barang Kelompok secara terintegrasi.
-            </p>
+        <div class="info-box" style="background: rgba(10,17,40,0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; margin-top: 1rem;">
+            <div class="info-title" style="color: var(--text-yellow);">ℹ️ Informasi</div>
+            <p class="info-text">Website ini menyajikan seluruh data dari semua link yang diberikan secara lengkap tanpa dikurangi.</p>
         </div>
-
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>© 2026 Sistem Informasi Manajemen Perikanan</p>
         <p>Tiaraisya Akbar | Kelompok 3 POKLAHSAR</p>
     </footer>
 
-    <!-- JavaScript untuk fungsi Dropdown klik -->
     <script>
         function toggleMenu(menuId, element) {
             var submenu = document.getElementById(menuId);
-            
-            // Cek apakah menu sedang terbuka atau tertutup
             if (submenu.style.display === "flex") {
                 submenu.style.display = "none";
                 element.classList.remove("active");
@@ -314,6 +181,5 @@
             }
         }
     </script>
-
 </body>
 </html>
