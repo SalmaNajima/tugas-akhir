@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Akhir - SIM Perikanan</title>
+    <!-- Menggunakan Font Inter agar tampilan teks lebih modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Variasi warna biru baru (Oceanic & Modern) */
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0369a1 100%);
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-hover: rgba(255, 255, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-yellow: #facc15;
+            --btn-bg: #ffffff;
+            --btn-text: #1e3a8a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .subtitle-yellow {
+            color: var(--text-yellow);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle-main {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-kembali {
+            display: inline-block;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            text-decoration: none;
+            padding: 0.6rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-kembali:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- MENU & CARD SECTION (Glassmorphism) --- */
+        .card-menu {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card-menu:hover {
+            background: var(--card-hover);
+            transform: translateX(4px);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Sub-menu container (Untuk list di dalam kelompok) */
+        .submenu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            padding-left: 1rem;
+            margin-top: -0.4rem;
+        }
+
+        .card-submenu {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 0.9rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .card-submenu-link {
+            background: rgba(3, 105, 161, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            justify-content: center;
+            color: var(--text-yellow);
+        }
+
+        /* --- INFORMASI SECTION --- */
+        .info-box {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-title {
+            color: var(--text-yellow);
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.85;
+            text-align: justify;
+        }
+
+        /* --- FOOTER SECTION --- */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            opacity: 0.7;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <div class="logo-title">📚 Tugas Akhir</div>
+            <div class="subtitle-yellow">Kelompok 3 POKLAHSAR</div>
+            <div class="subtitle-main">Sistem Informasi Manajemen Perikanan</div>
+            <a href="#" class="btn-kembali">← Kembali</a>
+        </header>
+
+        <!-- Menu Utama -->
+        <a class="card-menu">📁 INDIVIDU</a>
+        
+        <a class="card-menu">Inventaris Barang Kelompok</a>
+        
+        <div class="card-menu">📁 KELOMPOK</div>
+
+        <!-- Sub-Menu Kelompok (Referensi gambar image_35e446.jpg) -->
+        <div class="submenu-container">
+            <div class="card-menu card-submenu"> Sejarah Kelompok</div>
+            <div class="card-menu card-submenu"> Data Dasar Kelompok</div>
+            <div class="card-menu card-submenu"> Data Anggota Kelompok</div>
+            <div class="card-menu card-submenu"> Data Komoditas Perikanan</div>
+            <div class="card-menu card-submenu"> Hasil Data Kelompok</div>
+            <div class="card-menu card-submenu card-submenu-link">🌐 Website Kelompok 3 POKLAHSAR</div>
+        </div>
+
+        <!-- Kotak Informasi -->
+        <div class="info-box">
+            <div class="info-title">Informasi</div>
+            <p class="info-text">
+                Website ini dibuat sebagai media penyajian Tugas Akhir Sistem Informasi Manajemen Perikanan yang memuat data kelompok POKLAHSAR dan inventaris barang kelompok secara terintegrasi.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Sistem Informasi Manajemen Perikanan</p>
+        <p>Tiaraisya Akbar | Kelompok 3 POKLAHSAR</p>
+    </footer>
+
+</body>
+</html>
