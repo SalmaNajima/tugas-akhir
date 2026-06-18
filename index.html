@@ -47,6 +47,7 @@
             justify-content: space-between;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none; /* Menghilangkan garis bawah pada tautan */
         }
         .btn-main-menu:hover, .btn-sub-menu:hover {
             background: rgba(255,255,255,0.15);
@@ -97,25 +98,23 @@
             <div class="subtitle-main">Sistem Informasi Manajemen Perikanan</div>
         </header>
 
-        <!-- INDIVIDU -->
         <div class="btn-main-menu" onclick="toggleMenu('menu-individu', this)">
             <span>📁 INDIVIDU</span>
             <span class="arrow">▼</span>
         </div>
         <div id="menu-individu" class="submenu-container">
-            <a href="https://salmanajima.github.io/sllma/" target="_blank" class="btn-sub-menu" style="background:rgba(25,130,196,0.45); justify-content:center;">
-                📦 Inventaris Barang Kelompok
+            <a href="https://salmanajima.github.io/sllma/" target="_blank" class="btn-sub-menu">
+                <span>📦 Inventaris Barang Kelompok</span>
+                <span class="arrow">↗</span>
             </a>
         </div>
 
-        <!-- KELOMPOK -->
         <div class="btn-main-menu" onclick="toggleMenu('menu-kelompok', this)">
             <span>📁 KELOMPOK</span>
             <span class="arrow">▼</span>
         </div>
         <div id="menu-kelompok" class="submenu-container">
 
-            <!-- Sejarah -->
             <div class="btn-sub-menu" onclick="showOnlyContent('sejarah-content', this)">📖 Sejarah Kelompok <span class="arrow">▼</span></div>
             <div id="sejarah-content" class="content-container">
                 <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Sejarah Kelompok</h3>
@@ -133,7 +132,6 @@
                 Kelompok ini aktif dalam kegiatan produksi, pemasaran, pelatihan, dan pengembangan usaha guna meningkatkan kualitas produk serta daya saing usaha anggota kelompok.</p>
             </div>
 
-            <!-- Data Dasar -->
             <div class="btn-sub-menu" onclick="showOnlyContent('dasar-content', this)">📋 Data Dasar Kelompok <span class="arrow">▼</span></div>
             <div id="dasar-content" class="content-container">
                 <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Data Dasar Kelompok</h3>
@@ -150,7 +148,6 @@
                 </table>
             </div>
 
-            <!-- Data Anggota (FULL) -->
             <div class="btn-sub-menu" onclick="showOnlyContent('anggota-content', this)">👥 Data Anggota Kelompok <span class="arrow">▼</span></div>
             <div id="anggota-content" class="content-container">
                 <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Data Anggota Kelompok (Lengkap)</h3>
@@ -199,7 +196,6 @@
                 </table>
             </div>
 
-            <!-- Data Komoditas -->
             <div class="btn-sub-menu" onclick="showOnlyContent('komoditas-content', this)">🐟 Data Komoditas Perikanan <span class="arrow">▼</span></div>
             <div id="komoditas-content" class="content-container">
                 <h3 style="color:var(--text-yellow); margin-bottom:1rem;">Data Komoditas Perikanan</h3>
@@ -216,9 +212,9 @@
                 </table>
             </div>
 
-            <!-- Hasil Data -->
-            <a href="https://salmanajima.github.io/SSLM/" target="_blank" class="btn-sub-menu" style="background:rgba(3,105,161,0.7); color:white; justify-content:center;">
-                📊 Hasil Data Kelompok & Inventaris Lengkap 
+            <a href="https://salmanajima.github.io/SSLM/" target="_blank" class="btn-sub-menu">
+                <span>📊 Hasil Data Kelompok & Inventaris Lengkap</span>
+                <span class="arrow">↗</span>
             </a>
         </div>
 
